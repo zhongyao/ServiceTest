@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/startService1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显式启动Service"/>
+    <Button
+        android:id="@+id/startService2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:text="隐式启动Service"/>
+    <Button
+        android:id="@+id/stopService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="停止Service"/>
+    <Button
+        android:id="@+id/bindService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绑定Service"/>
+
+</LinearLayout>
