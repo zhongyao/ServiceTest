@@ -16,6 +16,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button startService2;
     private Button stopService;
     private Button bindService;
+    private Button foregroundService;
     public static final String TAG = "yao";
     private MusicService musicService;
     @Override
@@ -33,11 +34,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
         startService2 = (Button) findViewById(R.id.startService2);
         stopService = (Button) findViewById(R.id.stopService);
         bindService = (Button) findViewById(R.id.bindService);
+        foregroundService = (Button) findViewById(R.id.foregroundService);
 
         startService1.setOnClickListener(this);
         startService2.setOnClickListener(this);
         stopService.setOnClickListener(this);
         bindService.setOnClickListener(this);
+        foregroundService.setOnClickListener(this);
     }
 
     @Override
@@ -62,6 +65,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
              Intent bindIntent = new Intent(this,MusicService.class);
              bindService(bindIntent,connection, Context.BIND_AUTO_CREATE);
              break;
+         case R.id.foregroundService:
+             Intent foreIntent = new Intent(this,ForegroundService.class);
+             startService(foreIntent);
+             break;
      }
     }
 
@@ -82,6 +89,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(connection);
+        if (connection != null) {
+            unbindService(connection);
+        }
     }
 }
