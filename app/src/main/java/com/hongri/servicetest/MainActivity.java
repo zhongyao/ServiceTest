@@ -17,6 +17,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button stopService;
     private Button bindService;
     private Button foregroundService;
+    private Button myService;
+    private Button myIntentService;
     public static final String TAG = "yao";
     private MusicService musicService;
     @Override
@@ -35,12 +37,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
         stopService = (Button) findViewById(R.id.stopService);
         bindService = (Button) findViewById(R.id.bindService);
         foregroundService = (Button) findViewById(R.id.foregroundService);
+        myService = (Button) findViewById(R.id.myService);
+        myIntentService = (Button) findViewById(R.id.myIntentService);
 
         startService1.setOnClickListener(this);
         startService2.setOnClickListener(this);
         stopService.setOnClickListener(this);
         bindService.setOnClickListener(this);
         foregroundService.setOnClickListener(this);
+        myService.setOnClickListener(this);
+        myIntentService.setOnClickListener(this);
     }
 
     @Override
@@ -68,6 +74,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
          case R.id.foregroundService:
              Intent foreIntent = new Intent(this,ForegroundService.class);
              startService(foreIntent);
+             break;
+         case R.id.myService:
+             Intent service = new Intent(this,MyService.class);
+             startService(service);
+             break;
+         case R.id.myIntentService:
+             Intent intentService = new Intent(this,MyIntentService.class);
+             startService(intentService);
              break;
      }
     }

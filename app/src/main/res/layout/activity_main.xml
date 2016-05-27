@@ -31,4 +31,15 @@
         android:layout_height="wrap_content"
         android:text="创建前台Service"/>
 
+    <Button
+        android:id="@+id/myService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service中进行耗时操作"/>
+    <Button
+        android:id="@+id/myIntentService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="IntentService中进行耗时操作"/>
+
 </LinearLayout>
